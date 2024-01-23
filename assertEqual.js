@@ -1,9 +1,10 @@
 
-const assertEqual = function(actual, expected) {
+const assertEqual = function(actual, expected, message = null) {
+  message = message ? '[' + message + '] ' : '';
   if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
+    console.log(`✅ ${message} Assertion Passed: ${actual} === ${expected}`);
   } else {
-    console.log(`⛔ Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`⛔ ${message} Assertion Failed: ${actual} !== ${expected}`);
   }
 
 };
