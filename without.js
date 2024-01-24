@@ -14,11 +14,14 @@ const without = (sourceArray, itemsToRemove) => {
   return result;
 };
 
-without([1, 2, 3], [1]); // => [2, 3]
-without(["1", "2", "3"], [1, 2, "3"]); // => ["1", "2"]
+assertArraysEqual(without([1, 2, 3], [1]),[2,3]);
 
+assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]),["1", "2"]);
 
-without(["lighthouse","labs","module 1","week 1", Math.PI],[Math.PI,"lighthouse"]);
+assertArraysEqual(without(
+  ["lighthouse","labs","module 1","week 1", Math.PI],
+  [Math.PI,"lighthouse"]),["labs","module 1","week 1"]);
+
 let testData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 without(testData, [1, 3, 5, 7, 9]);
 assertArraysEqual(testData, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
