@@ -6,8 +6,6 @@ const findKeyByValue = (object, value) => {
       return key;
     }
   }
-
-  return undefined;
 };
 
 const bestTVShowsByGenre = {
