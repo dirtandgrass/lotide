@@ -1,5 +1,5 @@
-const assertEqual = require('../lotide/assertEqual');
-const isLetter = require('../lotide/isLetter');
+const assertEqual = require('./assertEqual');
+const isLetter = require('./isLetter');
 
 const countLetters = function(string) {
 
