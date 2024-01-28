@@ -6,7 +6,7 @@ const isLetter = require('../lotide/isLetter');
 const letterPositions = function(string) {
 
   if (typeof string !== 'string') {
-    return {};
+    throw new Error('input must be a string');
   }
 
   const results = {};
