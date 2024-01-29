@@ -2,11 +2,7 @@ const assertEqual = require('./assertEqual');
 const eqArrays = require('./eqArrays');
 
 const eqObjects = function(object1, object2) {
-
-
-
-
-
+  // get kvp for both objects
   const entries1 = Object.entries(object1);
   const entries2 = Object.entries(object2);
   // fail fast if different number of keys
@@ -33,16 +29,14 @@ const eqObjects = function(object1, object2) {
 
       // check member functions
       if (typeof object2[key] === 'function' && typeof value === 'function') {
+        // adapted from:
+        // https://stackoverflow.com/questions/9817629/how-do-i-compare-2-functions-in-javascript
         // if it is the exact same (code) function
         return object2[key].toString() === value.toString();
       }
-
-
       return false; // if not an object, primitive ==> false
     }
-
   }
-
   return true;
 };
 
