@@ -1,6 +1,7 @@
-const eqArrays = require('./eqArrays');
+
 
 const eqObjects = function(object1, object2) {
+  const eqArrays = require('./eqArrays');
   // get kvp for both objects
   const entries1 = Object.entries(object1);
   const entries2 = Object.entries(object2);
