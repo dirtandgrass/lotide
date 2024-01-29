@@ -42,6 +42,7 @@ const eqObjects = function(object1, object2) {
         // https://stackoverflow.com/questions/9817629/how-do-i-compare-2-functions-in-javascript
         // if it is the exact same (code) function
         if (object2[key].toString() !== value.toString()) return false;
+        if (!eqObjects(object2[key], value)) return false;
       }
 
     }
