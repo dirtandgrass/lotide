@@ -12,29 +12,38 @@ const eqObjects = function(object1, object2) {
 
   // loop through keys in object1 and compare
   for (const [key, value] of entries1) {
-    if (!object2[key]) {
-      return false;
-    }
+    if (!object2[key]) return false; // key does not exist in object2
+
     if (object2[key] !== value) {
+      // not the same,
+      // 1. two different types
+      // 2. unequal primitives
+      // 3. matching reference type
+
+      if (typeof object2[key] !== typeof value) return false; // 1. different types
+
+      // if primitives
+      if (typeof value !== 'object' && typeof value !== 'function') return false; //2. unequal primitives
+
       // TODO: check if object
       if (typeof object2[key] === 'object' && typeof value === 'object') { // if it is an object
-        // need to check if it is an array
 
-        if (Array.isArray(object2[key]) && Array.isArray(value)) {
-          return eqArrays(object2[key], value);
+        // need to check if it is an array
+        if (Array.isArray(value) && !eqArrays(object2[key], value)) {
+          return false;
         } else { // otherwise it is an object
-          return eqObjects(object2[key], value);
+          if (!eqObjects(object2[key], value)) return false;
         }
       }
 
       // check member functions
-      if (typeof object2[key] === 'function' && typeof value === 'function') {
+      if (typeof value === 'function') {
         // adapted from:
         // https://stackoverflow.com/questions/9817629/how-do-i-compare-2-functions-in-javascript
         // if it is the exact same (code) function
-        return object2[key].toString() === value.toString();
+        if (object2[key].toString() !== value.toString()) return false;
       }
-      return false; // if not an object, primitive ==> false
+
     }
   }
   return true;
@@ -49,11 +58,16 @@ const longSleeveShirtObject = { size: "medium", color: "red", sleeveLength: "lon
 assertEqual(eqObjects(shirtObject , longSleeveShirtObject),false);
 
 const shirtWithColorsObj = { colors: ["red", "green", "purple"], size: "medium" };
-const anotherShirtWithColorsObj = { size: "medium", colors: ["red", "green", "purple"] };
+const anotherShirtWithColorsObj = { colors: ["red", "green", "purple"], size: "medium" };
 assertEqual(eqObjects(shirtWithColorsObj , anotherShirtWithColorsObj), true);
 
 const anotherShirtWithColorsMismatchObj = { size: "medium", colors: ["red", "green", "blue"] };
 assertEqual(eqObjects(shirtWithColorsObj , anotherShirtWithColorsMismatchObj), false);
+
+// test with bug fixed
+const shirtWithColorsObj2 = { colors: ["red", "green", "purple"], size: "large" };
+assertEqual(eqObjects(shirtWithColorsObj , shirtWithColorsObj2), false);
+
 
 
 const shirtWithSizePrices = { size: {medium:17,large:17.25,xl:17.5, sm: 16.75}, colors: ["red", "green", "blue"] };
