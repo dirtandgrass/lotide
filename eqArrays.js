@@ -1,4 +1,3 @@
-const assertEqual = require('./assertEqual');
 
 // does not handle nested object
 const eqArrays = function(actual, expected) {

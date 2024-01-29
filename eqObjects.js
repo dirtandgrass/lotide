@@ -1,4 +1,3 @@
-const assertEqual = require('./assertEqual');
 const eqArrays = require('./eqArrays');
 
 const eqObjects = function(object1, object2) {
@@ -50,38 +49,4 @@ const eqObjects = function(object1, object2) {
 };
 
 
-const shirtObject = { color: "red", size: "medium" };
-const anotherShirtObject = { size: "medium", color: "red" };
-assertEqual(eqObjects(shirtObject , anotherShirtObject), true);
-
-const longSleeveShirtObject = { size: "medium", color: "red", sleeveLength: "long" };
-assertEqual(eqObjects(shirtObject , longSleeveShirtObject),false);
-
-const shirtWithColorsObj = { colors: ["red", "green", "purple"], size: "medium" };
-const anotherShirtWithColorsObj = { colors: ["red", "green", "purple"], size: "medium" };
-assertEqual(eqObjects(shirtWithColorsObj , anotherShirtWithColorsObj), true);
-
-const anotherShirtWithColorsMismatchObj = { size: "medium", colors: ["red", "green", "blue"] };
-assertEqual(eqObjects(shirtWithColorsObj , anotherShirtWithColorsMismatchObj), false);
-
-// test with bug fixed
-const shirtWithColorsObj2 = { colors: ["red", "green", "purple"], size: "large" };
-assertEqual(eqObjects(shirtWithColorsObj , shirtWithColorsObj2), false);
-
-
-
-const shirtWithSizePrices = { size: {medium:17,large:17.25,xl:17.5, sm: 16.75}, colors: ["red", "green", "blue"] };
-const anotherShirtWithSizePrices = { size: {medium:17,large:17.25,xl:17.5, sm: 16.75}, colors: ["red", "green", "blue"] };
-assertEqual(eqObjects(shirtWithSizePrices , anotherShirtWithSizePrices), true);
-
-const anotherShirtWithMoreSizePrices = { size: {medium:17,large:17.25,xl:17.5, sm: 16.75, xs: 16.5}, colors: ["red", "green", "blue"] };
-assertEqual(eqObjects(shirtWithSizePrices , anotherShirtWithMoreSizePrices), false);
-
-const myFunc = {a:() => {}};
-const anotherFunc = {a:(a) => {
-  return 1;
-}};
-const myFuncAgain = {a:() => {}};
-
-assertEqual(eqObjects(myFunc , myFuncAgain), true);
-assertEqual(eqObjects(myFunc , anotherFunc), false);
+module.exports = eqObjects;
