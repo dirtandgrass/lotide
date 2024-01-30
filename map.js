@@ -10,7 +10,7 @@ const map = (array, mutator) => {
 
   const result = []; // new, empty array
   // loop through each element in the input array
-  for (let el in array) {
+  for (const el of array) {
     result.push(mutator(array[el])); // mutate each element and push to new array
   }
   return result;
