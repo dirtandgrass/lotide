@@ -11,7 +11,7 @@ const map = (array, mutator) => {
   const result = []; // new, empty array
   // loop through each element in the input array
   for (const el of array) {
-    result.push(mutator(array[el])); // mutate each element and push to new array
+    result.push(mutator(el)); // mutate each element and push to new array
   }
   return result;
 };
@@ -23,4 +23,4 @@ const result = map(words, word => word[0]);
 
 
 assertArraysEqual(result, ['g', 'c', 't', 'm', 't']); // should pass
-assertArraysEqual(result, ['g', 'c', 't', 'm']); // should fail
+//assertArraysEqual(result, ['g', 'c', 't', 'm']); // should fail
