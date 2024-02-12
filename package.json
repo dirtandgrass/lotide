@@ -1,6 +1,6 @@
 {
   "name": "@dirtandgrass/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a collection of utility functions authored for Lighthouse Labs Bootcamp3",
   "main": "index.js",
   "directories": {
