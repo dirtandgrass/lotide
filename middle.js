@@ -1,4 +1,3 @@
-const assertArraysEqual = require('./assertArraysEqual');
 
 const middle = (source) => {
   if (!Array.isArray(source)) {
