@@ -1,5 +1,5 @@
 
-const assertArraysEqual = require('./assertArraysEqual');
+//const assertArraysEqual = require('./assertArraysEqual');
 
 const map = (array, mutator) => {
 
@@ -16,11 +16,13 @@ const map = (array, mutator) => {
   return result;
 };
 
-const words = ["ground", "control", "to", "major", "tom"];
+
+module.exports = map;
+// const words = ["ground", "control", "to", "major", "tom"];
 
 
-const result = map(words, word => word[0]);
+// const result = map(words, word => word[0]);
 
 
-assertArraysEqual(result, ['g', 'c', 't', 'm', 't']); // should pass
-//assertArraysEqual(result, ['g', 'c', 't', 'm']); // should fail
+// assertArraysEqual(result, ['g', 'c', 't', 'm', 't']); // should pass
+// //assertArraysEqual(result, ['g', 'c', 't', 'm']); // should fail

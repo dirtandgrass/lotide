@@ -1,4 +1,4 @@
-const assertEqual = require('./assertEqual');
+// const assertEqual = require('./assertEqual');
 
 const findKey = (object, predicate) => {
 
@@ -11,20 +11,22 @@ const findKey = (object, predicate) => {
   // return undefined
 };
 
-const underTest = {
-  "Blue Hill": { stars: 1, city:"New York" },
-  "Akaleri":   { stars: 3, city:"Ottawa" },
-  "noma":      { stars: 2, city:"Vancouver" },
-  "elBulli":   { stars: 3, city:"Toronto" },
-  "Ora":       { stars: 2, city:"Montreal" },
-  "Akelarre":  { stars: 3, city:"Chicago" },
-};
+module.exports = findKey;
 
-const t1 = findKey(underTest, x => x.stars === 2); // => "noma"
-assertEqual(t1, "noma");
+// const underTest = {
+//   "Blue Hill": { stars: 1, city:"New York" },
+//   "Akaleri":   { stars: 3, city:"Ottawa" },
+//   "noma":      { stars: 2, city:"Vancouver" },
+//   "elBulli":   { stars: 3, city:"Toronto" },
+//   "Ora":       { stars: 2, city:"Montreal" },
+//   "Akelarre":  { stars: 3, city:"Chicago" },
+// };
 
-const t2 = findKey(underTest, x => x.stars > 5); // => undefined
-assertEqual(t2, undefined);
+// const t1 = findKey(underTest, x => x.stars === 2); // => "noma"
+// assertEqual(t1, "noma");
 
-const t3 = findKey(underTest, x => x.city.toLowerCase().includes("on")); // => "Toronto"
-assertEqual(t3, "elBulli");
+// const t2 = findKey(underTest, x => x.stars > 5); // => undefined
+// assertEqual(t2, undefined);
+
+// const t3 = findKey(underTest, x => x.city.toLowerCase().includes("on")); // => "Toronto"
+// assertEqual(t3, "elBulli");

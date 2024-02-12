@@ -1,4 +1,4 @@
-const assertEqual = require("./assertEqual");
+// const assertEqual = require("./assertEqual");
 
 const findKeyByValue = (object, value) => {
   for (const key in object) { // loop over each key in object
@@ -8,14 +8,15 @@ const findKeyByValue = (object, value) => {
   }
 };
 
-const bestTVShowsByGenre = {
-  sciFi: "The Expanse",
-  comedy: "Seinfeld",
-  drama: "Suits",
-  reality: "Below Deck",
-  fantasy: "Lost"
-};
+module.exports = findKeyByValue;
+// const bestTVShowsByGenre = {
+//   sciFi: "The Expanse",
+//   comedy: "Seinfeld",
+//   drama: "Suits",
+//   reality: "Below Deck",
+//   fantasy: "Lost"
+// };
 
-assertEqual(findKeyByValue(bestTVShowsByGenre, "Suits"), "drama");
-assertEqual(findKeyByValue(bestTVShowsByGenre, "Lost"), "fantasy");
-assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
+// assertEqual(findKeyByValue(bestTVShowsByGenre, "Suits"), "drama");
+// assertEqual(findKeyByValue(bestTVShowsByGenre, "Lost"), "fantasy");
+// assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);

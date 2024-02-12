@@ -24,6 +24,4 @@ const eqArrays = function(actual, expected) {
 };
 
 
-
-/* eslint-env node */
 module.exports = eqArrays;

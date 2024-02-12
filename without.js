@@ -1,4 +1,4 @@
-const assertArraysEqual = require("./assertArraysEqual");
+// const assertArraysEqual = require("./assertArraysEqual");
 
 const without = (sourceArray, itemsToRemove) => {
   if (!Array.isArray(sourceArray) || !Array.isArray(itemsToRemove)) {
@@ -14,14 +14,16 @@ const without = (sourceArray, itemsToRemove) => {
   return result;
 };
 
-assertArraysEqual(without([1, 2, 3], [1]),[2,3]);
+module.exports = without;
 
-assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]),["1", "2"]);
+// assertArraysEqual(without([1, 2, 3], [1]),[2,3]);
 
-assertArraysEqual(without(
-  ["lighthouse","labs","module 1","week 1", Math.PI],
-  [Math.PI,"lighthouse"]),["labs","module 1","week 1"]);
+// assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]),["1", "2"]);
 
-let testData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-without(testData, [1, 3, 5, 7, 9]);
-assertArraysEqual(testData, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
+// assertArraysEqual(without(
+//   ["lighthouse","labs","module 1","week 1", Math.PI],
+//   [Math.PI,"lighthouse"]),["labs","module 1","week 1"]);
+
+// let testData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// without(testData, [1, 3, 5, 7, 9]);
+// assertArraysEqual(testData, [1, 2, 3, 4, 5, 6, 7, 8, 9]);

@@ -1,18 +1,18 @@
-const assertEqual = require('./assertEqual');
+// const assertEqual = require('./assertEqual');
 
-const firstNames = [
-  "Karl",
-  "Salima",
-  "Agouhanna",
-  "Fang",
-  "Kavith",
-  "Jason",
-  "Salima",
-  "Fang",
-  "Joe"
-];
+// const firstNames = [
+//   "Karl",
+//   "Salima",
+//   "Agouhanna",
+//   "Fang",
+//   "Kavith",
+//   "Jason",
+//   "Salima",
+//   "Fang",
+//   "Joe"
+// ];
 
-const vip = { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false };
+// const vip = { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false };
 
 
 const countOnly = (allItems, itemsToCount) => {
@@ -24,9 +24,11 @@ const countOnly = (allItems, itemsToCount) => {
   }, {}); // init accumulator is empty
 };
 
-const result1 = countOnly(firstNames, vip);
+// const result1 = countOnly(firstNames, vip);
 
-assertEqual(result1["Jason"], 1);
-assertEqual(result1["Karima"], undefined);
-assertEqual(result1["Fang"], 2);
-assertEqual(result1["Agouhanna"], undefined);
+// assertEqual(result1["Jason"], 1);
+// assertEqual(result1["Karima"], undefined);
+// assertEqual(result1["Fang"], 2);
+// assertEqual(result1["Agouhanna"], undefined);
+
+module.exports = countOnly;
