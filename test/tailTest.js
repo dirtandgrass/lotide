@@ -9,7 +9,7 @@ describe("#tail", () => {
     assert.strictEqual(words.length, 5);
   });
 
-  it("should return a array withe the same vlues, minus the first element", () => {
+  it("should return a sub array with the correct values", () => {
     const words = ["Yo Yo", "Ma", ",","Cellist", "Extraordinaire"];
     const theTail = tail(words);
     assert.deepEqual(theTail, ["Ma", ",","Cellist", "Extraordinaire"]);
